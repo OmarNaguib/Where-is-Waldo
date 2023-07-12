@@ -5,7 +5,12 @@ import image from "./assets/beach.jpg";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">Where's Waldo</header>
+      <header className="App-header">
+        Where's Waldo{" "}
+        <div tabIndex={0} autoFocus>
+          hi hi hi
+        </div>
+      </header>
       <Challenge url={image} name="beach"></Challenge>
     </div>
   );

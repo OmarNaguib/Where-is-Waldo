@@ -5,9 +5,9 @@ export default function Square({ x, y }) {
   return (
     <div
       className="square"
-      onClick={() => {
-        console.log({ x, y });
-        console.log(isCorrect(correctSquares("beach"), [x, y]));
+      onClick={(e) => {
+        // console.log({ x, y });
+        // console.log(isCorrect(correctSquares("beach"), [x, y]));
       }}
     ></div>
   );

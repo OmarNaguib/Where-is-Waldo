@@ -22,4 +22,12 @@
 .square {
   width: 2%;
   height: 2%;
+  /* border: solid 1px black; */
+}
+
+.target-box {
+  height: 10%;
+  width: 6%;
+  position: absolute;
+  border: solid 2px black;
 }
