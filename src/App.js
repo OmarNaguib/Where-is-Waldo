@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">Where's Waldo</header>
-      <Challenge url={image}></Challenge>
+      <Challenge url={image} name="beach"></Challenge>
     </div>
   );
 }
