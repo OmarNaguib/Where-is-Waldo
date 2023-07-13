@@ -15,6 +15,13 @@ export default function Challenge({ url, name }) {
   ));
   const [target, setTarget] = useState(null);
 
+  const menuItems = characters.map((item) => (
+    <button className="menu-item">
+      <div className="name">{item[0]}</div>
+      <img src={item[1]} alt={item[0]} />
+    </button>
+  ));
+
   return (
     <>
       <Header characters={characters}></Header>
@@ -35,6 +42,18 @@ export default function Challenge({ url, name }) {
               left: `calc(${target[0]}px - 3%)`,
             }}
           ></div>
+        ) : null}
+
+        {target ? (
+          <div
+            className="drop-menu"
+            style={{
+              top: `calc(${target[1]}px - 5%)`,
+              left: `calc(${target[0]}px + 4%)`,
+            }}
+          >
+            {menuItems}
+          </div>
         ) : null}
       </div>
     </>
