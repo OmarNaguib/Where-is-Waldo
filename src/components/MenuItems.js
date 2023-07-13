@@ -4,23 +4,34 @@ import data from "../utils/data";
 export default function MenuItems({
   target,
   characters,
+  setCharacters,
   name,
   selectedSquare,
 }) {
   const menuItems = characters
     .filter((item) => !item.found)
-    .map((item) => (
+    .map((character) => (
       <button
         className="menu-item"
         onClick={() => {
           if (
-            isCorrect(data.getCorrectSquaresOf(name), selectedSquare, item[0])
-          )
-            item.found = true;
+            isCorrect(
+              data.getCorrectSquaresOf(name),
+              selectedSquare,
+              character[0]
+            )
+          ) {
+            setCharacters((prev) => {
+              return prev.map((item) => {
+                if (character[0] === item[0]) return { ...item, found: true };
+                else return item;
+              });
+            });
+          }
         }}
       >
-        <div className="name">{item[0]}</div>
-        <img src={item[1]} alt={item[0]} />
+        <div className="name">{character[0]}</div>
+        <img src={character[1]} alt={character[0]} />
       </button>
     ));
 

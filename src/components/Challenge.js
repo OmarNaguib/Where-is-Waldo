@@ -38,6 +38,7 @@ export default function Challenge({ url, name }) {
             characters={characters}
             name={name}
             selectedSquare={selectedSquare}
+            setCharacters={setCharacters}
           ></MenuItems>
         ) : null}
       </div>
