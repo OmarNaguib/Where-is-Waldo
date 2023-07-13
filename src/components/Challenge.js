@@ -5,6 +5,7 @@ import Header from "./Header";
 import TargetBox from "./TargetBox";
 import MenuItems from "./MenuItems";
 import Squares from "./Squares";
+import EndMessage from "./EndMessage";
 
 export default function Challenge({ url, name }) {
   const [characters, setCharacters] = useState(data.getCharcterDataOf(name));
@@ -41,6 +42,8 @@ export default function Challenge({ url, name }) {
             setCharacters={setCharacters}
           ></MenuItems>
         ) : null}
+
+        {gameOver ? <EndMessage></EndMessage> : null}
       </div>
     </>
   );
