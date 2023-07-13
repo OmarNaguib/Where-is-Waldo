@@ -5,6 +5,7 @@ import data from "../utils/data";
 import Header from "./Header";
 import isCorrect from "../utils/isCorrect";
 import TargetBox from "./TargetBox";
+import MenuItems from "./MenuItems";
 
 export default function Challenge({ url, name }) {
   const [characters, setCharacters] = useState(data.getCharcterDataOf(name));
@@ -26,23 +27,6 @@ export default function Challenge({ url, name }) {
   console.log(selectedSquare);
   const [target, setTarget] = useState(null);
 
-  const menuItems = characters
-    .filter((item) => !item.found)
-    .map((item) => (
-      <button
-        className="menu-item"
-        onClick={() => {
-          if (
-            isCorrect(data.getCorrectSquaresOf(name), selectedSquare, item[0])
-          )
-            item.found = true;
-        }}
-      >
-        <div className="name">{item[0]}</div>
-        <img src={item[1]} alt={item[0]} />
-      </button>
-    ));
-
   return (
     <>
       <Header characters={characters}></Header>
@@ -58,15 +42,12 @@ export default function Challenge({ url, name }) {
         {target ? <TargetBox target={target}></TargetBox> : null}
 
         {target ? (
-          <div
-            className="drop-menu"
-            style={{
-              top: `calc(${target[1]}px + 6%)`,
-              left: `calc(${target[0]}px - 4%)`,
-            }}
-          >
-            {menuItems}
-          </div>
+          <MenuItems
+            target={target}
+            characters={characters}
+            name={name}
+            selectedSquare={selectedSquare}
+          ></MenuItems>
         ) : null}
       </div>
     </>
