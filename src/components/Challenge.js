@@ -6,6 +6,10 @@ import Header from "./Header";
 
 export default function Challenge({ url, name }) {
   const [characters, setCharacters] = useState(data.getCharcterDataOf(name));
+  const gameOver = characters.reduce(
+    (total, current) => total && current.found,
+    true
+  );
   const squares = getGrid(50, 50).map((coords) => (
     <Square x={coords[0]} y={coords[1]}></Square>
   ));
