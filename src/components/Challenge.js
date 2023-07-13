@@ -1,9 +1,7 @@
-import getGrid from "../utils/getGrid";
-import Square from "./Square";
 import { useState } from "react";
 import data from "../utils/data";
+
 import Header from "./Header";
-import isCorrect from "../utils/isCorrect";
 import TargetBox from "./TargetBox";
 import MenuItems from "./MenuItems";
 import Squares from "./Squares";
@@ -28,7 +26,6 @@ export default function Challenge({ url, name }) {
         className="challenge"
         onClick={(e) => {
           setTarget([e.pageX, e.pageY]);
-          // console.log([e.pageX, e.pageY]);
         }}
       >
         <Squares setSelectedSquare={setSelectedSquare}></Squares>
