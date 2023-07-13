@@ -6,6 +6,7 @@ import Header from "./Header";
 import isCorrect from "../utils/isCorrect";
 import TargetBox from "./TargetBox";
 import MenuItems from "./MenuItems";
+import Squares from "./Squares";
 
 export default function Challenge({ url, name }) {
   const [characters, setCharacters] = useState(data.getCharcterDataOf(name));
@@ -17,13 +18,6 @@ export default function Challenge({ url, name }) {
 
   const [selectedSquare, setSelectedSquare] = useState(null);
 
-  const squares = getGrid(50, 50).map((coords) => (
-    <Square
-      x={coords[0]}
-      y={coords[1]}
-      setSelectedSquare={setSelectedSquare}
-    ></Square>
-  ));
   console.log(selectedSquare);
   const [target, setTarget] = useState(null);
 
@@ -37,7 +31,7 @@ export default function Challenge({ url, name }) {
           // console.log([e.pageX, e.pageY]);
         }}
       >
-        <div className="squares">{squares}</div>
+        <Squares setSelectedSquare={setSelectedSquare}></Squares>
         <img src={url} alt="" />
         {target ? <TargetBox target={target}></TargetBox> : null}
 
