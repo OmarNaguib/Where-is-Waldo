@@ -3,20 +3,35 @@ import Square from "./Square";
 import { useState } from "react";
 import data from "../utils/data";
 import Header from "./Header";
+import isCorrect from "../utils/isCorrect";
 
 export default function Challenge({ url, name }) {
   const [characters, setCharacters] = useState(data.getCharcterDataOf(name));
+
   const gameOver = characters.reduce(
     (total, current) => total && current.found,
     true
   );
+
+  const [selectedSquare, setSelectedSquare] = useState(null);
+
   const squares = getGrid(50, 50).map((coords) => (
-    <Square x={coords[0]} y={coords[1]}></Square>
+    <Square
+      x={coords[0]}
+      y={coords[1]}
+      setSelectedSquare={setSelectedSquare}
+    ></Square>
   ));
+  console.log(selectedSquare);
   const [target, setTarget] = useState(null);
 
   const menuItems = characters.map((item) => (
-    <button className="menu-item">
+    <button
+      className="menu-item"
+      onClick={() => {
+        isCorrect(data.getCorrectSquaresOf(name));
+      }}
+    >
       <div className="name">{item[0]}</div>
       <img src={item[1]} alt={item[0]} />
     </button>
@@ -29,7 +44,7 @@ export default function Challenge({ url, name }) {
         className="challenge"
         onClick={(e) => {
           setTarget([e.pageX, e.pageY]);
-          console.log([e.pageX, e.pageY]);
+          // console.log([e.pageX, e.pageY]);
         }}
       >
         <div className="squares">{squares}</div>

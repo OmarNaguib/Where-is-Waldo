@@ -1,7 +1,7 @@
 import data from "../utils/data";
 import isCorrect from "../utils/isCorrect";
 
-export default function Square({ x, y }) {
+export default function Square({ x, y, setSelectedSquare }) {
   return (
     <div
       className="square"
@@ -10,7 +10,8 @@ export default function Square({ x, y }) {
         // data.getCorrectSquares("beach");
         // console.log("here");
         // console.log();
-        console.log(isCorrect(data.getCorrectSquaresOf("beach"), [x, y]));
+        // console.log(isCorrect(data.getCorrectSquaresOf("beach"), [x, y]));
+        setSelectedSquare([x, y]);
       }}
     ></div>
   );
