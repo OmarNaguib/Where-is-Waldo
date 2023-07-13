@@ -29,7 +29,8 @@ export default function Challenge({ url, name }) {
     <button
       className="menu-item"
       onClick={() => {
-        isCorrect(data.getCorrectSquaresOf(name));
+        if (isCorrect(data.getCorrectSquaresOf(name), selectedSquare, item[0]))
+          item.found = true;
       }}
     >
       <div className="name">{item[0]}</div>
