@@ -25,18 +25,22 @@ export default function Challenge({ url, name }) {
   console.log(selectedSquare);
   const [target, setTarget] = useState(null);
 
-  const menuItems = characters.map((item) => (
-    <button
-      className="menu-item"
-      onClick={() => {
-        if (isCorrect(data.getCorrectSquaresOf(name), selectedSquare, item[0]))
-          item.found = true;
-      }}
-    >
-      <div className="name">{item[0]}</div>
-      <img src={item[1]} alt={item[0]} />
-    </button>
-  ));
+  const menuItems = characters
+    .filter((item) => !item.found)
+    .map((item) => (
+      <button
+        className="menu-item"
+        onClick={() => {
+          if (
+            isCorrect(data.getCorrectSquaresOf(name), selectedSquare, item[0])
+          )
+            item.found = true;
+        }}
+      >
+        <div className="name">{item[0]}</div>
+        <img src={item[1]} alt={item[0]} />
+      </button>
+    ));
 
   return (
     <>
