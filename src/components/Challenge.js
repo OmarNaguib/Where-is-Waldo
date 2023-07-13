@@ -1,8 +1,10 @@
 import getGrid from "../utils/getGrid";
 import Square from "./Square";
 import { useState } from "react";
+import data from "../utils/data";
 
 export default function Challenge({ url, name }) {
+  console.log(data.getCharcterDataOf(name));
   const squares = getGrid(50, 50).map((coords) => (
     <Square x={coords[0]} y={coords[1]}></Square>
   ));
