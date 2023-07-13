@@ -68,8 +68,8 @@ export default function Challenge({ url, name }) {
           <div
             className="drop-menu"
             style={{
-              top: `calc(${target[1]}px - 5%)`,
-              left: `calc(${target[0]}px + 4%)`,
+              top: `calc(${target[1]}px + 6%)`,
+              left: `calc(${target[0]}px - 4%)`,
             }}
           >
             {menuItems}
