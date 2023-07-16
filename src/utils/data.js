@@ -1,6 +1,5 @@
 import { getCorrectSquaresOf, addLeaderboardRecord } from "./backend";
 
-const path = "../assets/characters/";
 const allCharacters = {
   waldo: ["waldo", require("../assets/characters/waldo.webp")],
   odlaw: ["odlaw", require("../assets/characters/Odlaw.jpg")],

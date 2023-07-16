@@ -1,9 +1,7 @@
 import { initializeApp } from "firebase/app";
 import {
-  getFirestore,
   doc,
   getDoc,
-  setDoc,
   addDoc,
   collection,
   initializeFirestore,
