@@ -11,17 +11,40 @@
   justify-content: center;
   align-items: center;
 
-  font-size: 35px;
+  font-size: 30px;
 }
 
 .modal-content {
   display: grid;
-  place-content: center;
+  /* place-content: center; */
   background-color: #fefefe;
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
-  height: 180px;
-  width: 300px;
+  height: 400px;
+  width: 400px;
   border-radius: 10px;
+}
+
+.message-content > .prompt {
+  align-self: start;
+  justify-self: center;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+form > div {
+  width: 50%;
+  display: grid;
+  place-content: start center;
+
+  gap: 10px;
+}
+form > button {
+  height: 40px;
+  width: 100px;
 }
