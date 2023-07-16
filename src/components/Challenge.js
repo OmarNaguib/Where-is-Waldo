@@ -7,7 +7,7 @@ import MenuItems from "./MenuItems";
 import Squares from "./Squares";
 import EndMessage from "./EndMessage";
 
-export default function Challenge({ url, name }) {
+export default function Challenge({ url, name, time }) {
   const [characters, setCharacters] = useState(data.getCharcterDataOf(name));
 
   const gameOver = characters.reduce(
@@ -22,7 +22,7 @@ export default function Challenge({ url, name }) {
 
   return (
     <>
-      <Header characters={characters}></Header>
+      <Header characters={characters} gameOver={gameOver}></Header>
       <div
         className="challenge"
         onClick={(e) => {
@@ -43,7 +43,7 @@ export default function Challenge({ url, name }) {
           ></MenuItems>
         ) : null}
 
-        {gameOver ? <EndMessage></EndMessage> : null}
+        {gameOver ? <EndMessage time={time}></EndMessage> : null}
       </div>
     </>
   );
