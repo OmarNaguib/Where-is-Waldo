@@ -5,7 +5,7 @@ import image from "./assets/beach.jpg";
 function App() {
   return (
     <div className="App">
-      <Challenge url={image} name="beach" time={new Date()}></Challenge>
+      <Challenge url={image} name="beach" startTime={new Date()}></Challenge>
     </div>
   );
 }
