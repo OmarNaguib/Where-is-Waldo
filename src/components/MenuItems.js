@@ -3,6 +3,7 @@ import data from "../utils/data";
 
 export default function MenuItems({
   target,
+  setTarget,
   characters,
   setCharacters,
   name,
@@ -13,7 +14,9 @@ export default function MenuItems({
     .map((character) => (
       <button
         className="menu-item"
-        onClick={() => {
+        onClick={(e) => {
+          e.stopPropagation();
+          setTarget(null);
           if (
             isCorrect(
               data.getCorrectSquaresOf(name),

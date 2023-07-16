@@ -41,7 +41,7 @@ export default function Challenge({ url, name, startTime }) {
       <div
         className="challenge"
         onClick={(e) => {
-          setTarget([e.pageX, e.pageY]);
+          !target ? setTarget([e.pageX, e.pageY]) : setTarget(null);
         }}
       >
         <Squares setSelectedSquare={setSelectedSquare}></Squares>
@@ -51,6 +51,7 @@ export default function Challenge({ url, name, startTime }) {
         {target ? (
           <MenuItems
             target={target}
+            setTarget={setTarget}
             characters={characters}
             name={name}
             selectedSquare={selectedSquare}

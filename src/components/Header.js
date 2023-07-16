@@ -1,5 +1,3 @@
-import { differenceInSeconds } from "date-fns";
-
 export default function Header({ characters, time }) {
   const headerCharacters = characters.map((item) => {
     return (
