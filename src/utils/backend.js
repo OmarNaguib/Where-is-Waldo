@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 
 // web app's Firebase configuration
 const firebaseConfig = {
@@ -12,3 +13,12 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const getCorrectSquaresOf = async (map) => {
+  const docRef = doc(db, "correct-positions", map);
+  const docSnap = await getDoc(docRef);
+  return docSnap.data();
+};
+
+export { getCorrectSquaresOf };

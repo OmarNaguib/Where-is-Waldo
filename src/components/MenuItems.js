@@ -14,12 +14,12 @@ export default function MenuItems({
     .map((character) => (
       <button
         className="menu-item"
-        onClick={(e) => {
+        onClick={async (e) => {
           e.stopPropagation();
           setTarget(null);
           if (
             isCorrect(
-              data.getCorrectSquaresOf(name),
+              await data.getCorrectSquaresOf(name),
               selectedSquare,
               character[0]
             )
