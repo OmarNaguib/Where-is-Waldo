@@ -1,5 +1,13 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, doc, getDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  addDoc,
+  collection,
+  initializeFirestore,
+} from "firebase/firestore";
 
 // web app's Firebase configuration
 const firebaseConfig = {
@@ -13,12 +21,16 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const db = initializeFirestore(app, { useFetchStreams: false });
 
 const getCorrectSquaresOf = async (map) => {
   const docRef = doc(db, "correct-positions", map);
   const docSnap = await getDoc(docRef);
   return docSnap.data();
 };
+const addLeaderboardRecord = async (record) => {
+  const docRef = await addDoc(collection(db, "leaderboard"), record);
+  console.log("Document written with ID: ", docRef.id);
+};
 
-export { getCorrectSquaresOf };
+export { getCorrectSquaresOf, addLeaderboardRecord };

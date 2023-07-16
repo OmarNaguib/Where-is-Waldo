@@ -1,5 +1,14 @@
+import { useState } from "react";
 import "../styles/modal.css";
+import { addLeaderboardRecord } from "../utils/backend";
 export default function EndMessage({ time }) {
+  const [name, setName] = useState("");
+  const submitRecord = async (e) => {
+    e.preventDefault();
+    console.log("here");
+
+    console.log(await addLeaderboardRecord({ name, time }));
+  };
   return (
     <div className="end-message modal">
       <div className="message-content modal-content">
@@ -11,13 +20,12 @@ export default function EndMessage({ time }) {
           </div>
           <div>
             <label htmlFor="time">time: </label>
-            <output
-              id="time"
-              className="time"
-            >{`${time[0]} : ${time[1]}`}</output>
+            <output id="time" className="time">
+              {time}
+            </output>
           </div>
 
-          <button>Submit</button>
+          <button onClick={submitRecord}>Submit</button>
         </form>
       </div>
     </div>

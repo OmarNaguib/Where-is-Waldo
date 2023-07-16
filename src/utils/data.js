@@ -1,4 +1,4 @@
-import { getCorrectSquaresOf } from "./backend";
+import { getCorrectSquaresOf, addLeaderboardRecord } from "./backend";
 
 const path = "../assets/characters/";
 const allCharacters = {
@@ -11,5 +11,5 @@ const mapCharacters = { beach: ["waldo", "odlaw", "wizard"] };
 const getCharcterDataOf = (map) =>
   mapCharacters[map].map((item) => allCharacters[item]);
 
-const data = { getCorrectSquaresOf, getCharcterDataOf };
+const data = { getCorrectSquaresOf, addLeaderboardRecord, getCharcterDataOf };
 export default data;
