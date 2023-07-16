@@ -33,7 +33,11 @@ export default function Challenge({ url, name, startTime }) {
 
   return (
     <>
-      <Header characters={characters} gameOver={gameOver}></Header>
+      <Header
+        characters={characters}
+        gameOver={gameOver}
+        time={[minutes, seconds]}
+      ></Header>
       <div
         className="challenge"
         onClick={(e) => {

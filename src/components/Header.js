@@ -1,4 +1,6 @@
-export default function Header({ characters }) {
+import { differenceInSeconds } from "date-fns";
+
+export default function Header({ characters, time }) {
   const headerCharacters = characters.map((item) => {
     return (
       <div className={`character ${item.found ? "found" : ""}`}>
@@ -12,6 +14,7 @@ export default function Header({ characters }) {
     <header className="header">
       <div className="header-text">Where's Waldo</div>
       <div className="characters">{headerCharacters}</div>
+      <div className="time">{`${time[0]} : ${time[1]}`}</div>
     </header>
   );
 }
