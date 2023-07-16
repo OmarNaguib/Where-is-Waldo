@@ -30,13 +30,14 @@ export default function Challenge({ url, name, startTime }) {
   const minutes = Math.floor(difference / 60);
   const seconds =
     difference % 60 > 9 ? difference % 60 : "0" + (difference % 60);
+  const formattedTime = `${minutes} : ${seconds}`;
 
   return (
     <>
       <Header
         characters={characters}
         gameOver={gameOver}
-        time={[minutes, seconds]}
+        time={formattedTime}
       ></Header>
       <div
         className="challenge"
@@ -59,7 +60,7 @@ export default function Challenge({ url, name, startTime }) {
           ></MenuItems>
         ) : null}
 
-        {gameOver ? <EndMessage time={[minutes, seconds]}></EndMessage> : null}
+        {gameOver ? <EndMessage time={formattedTime}></EndMessage> : null}
       </div>
     </>
   );
