@@ -2,8 +2,9 @@ import Square from "./Square";
 import getGrid from "../utils/getGrid";
 
 export default function Squares({ setSelectedSquare }) {
-  const squares = getGrid(50, 50).map((coords) => (
+  const squares = getGrid(50, 50).map((coords, index) => (
     <Square
+      key={"square" + index}
       x={coords[0]}
       y={coords[1]}
       setSelectedSquare={setSelectedSquare}

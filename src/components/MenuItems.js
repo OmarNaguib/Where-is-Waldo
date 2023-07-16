@@ -11,8 +11,9 @@ export default function MenuItems({
 }) {
   const menuItems = characters
     .filter((item) => !item.found)
-    .map((character) => (
+    .map((character, index) => (
       <button
+        key={"menu" + index}
         className="menu-item"
         onClick={async (e) => {
           e.stopPropagation();
