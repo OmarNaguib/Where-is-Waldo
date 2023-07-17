@@ -24,7 +24,7 @@ export default function Challenge({ url, name, startTime }) {
   setTimeout(() => {
     if (gameOver) return;
     setCurrentTime(new Date());
-  }, 1000);
+  }, 100);
 
   const difference = differenceInSeconds(currentTime, startTime);
   const minutes = Math.floor(difference / 60);
