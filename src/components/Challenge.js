@@ -62,7 +62,9 @@ export default function Challenge({ url, name }) {
           ></MenuItems>
         ) : null}
 
-        {gameOver ? <EndMessage time={formattedTime}></EndMessage> : null}
+        {gameOver ? (
+          <EndMessage time={formattedTime} mapName={name}></EndMessage>
+        ) : null}
       </div>
     </>
   );

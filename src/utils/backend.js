@@ -22,12 +22,15 @@ const app = initializeApp(firebaseConfig);
 const db = initializeFirestore(app, { useFetchStreams: false });
 
 const getCorrectSquaresOf = async (map) => {
-  const docRef = doc(db, "correct-positions", map);
+  const docRef = doc(db, map, "correct-positions");
   const docSnap = await getDoc(docRef);
   return docSnap.data();
 };
-const addLeaderboardRecord = async (record) => {
-  const docRef = await addDoc(collection(db, "leaderboard"), record);
+const addLeaderboardRecord = async (record, name) => {
+  const docRef = await addDoc(
+    collection(db, name, "leaderboard", "entries"),
+    record
+  );
   console.log("Document written with ID: ", docRef.id);
 };
 

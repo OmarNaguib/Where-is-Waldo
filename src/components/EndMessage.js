@@ -1,13 +1,13 @@
 import { useState } from "react";
 import "../styles/modal.css";
 import { addLeaderboardRecord } from "../utils/backend";
-export default function EndMessage({ time }) {
+export default function EndMessage({ time, mapName }) {
   const [name, setName] = useState("");
   const submitRecord = async (e) => {
     e.preventDefault();
     console.log("here");
 
-    console.log(await addLeaderboardRecord({ name, time }));
+    console.log(await addLeaderboardRecord({ name, time }, mapName));
   };
   return (
     <div className="end-message modal">
