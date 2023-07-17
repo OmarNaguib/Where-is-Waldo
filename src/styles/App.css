@@ -1,3 +1,23 @@
+/* home page */
+.home {
+  display: grid;
+  justify-content: center;
+  align-content: space-around;
+  min-height: 100vh;
+}
+
+.home a {
+  text-decoration: none;
+  background-color: red;
+  color: white;
+  height: 30px;
+  width: 100px;
+  display: grid;
+  place-content: center;
+  border-radius: 8px;
+}
+
+/* challenge page */
 .challenge {
   width: 100%;
   display: grid;
