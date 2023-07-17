@@ -3,8 +3,11 @@ import {
   doc,
   getDoc,
   addDoc,
+  getDocs,
   collection,
   initializeFirestore,
+  query,
+  orderBy,
 } from "firebase/firestore";
 
 // web app's Firebase configuration
@@ -32,6 +35,16 @@ const addLeaderboardRecord = async (record, name) => {
     record
   );
   console.log("Document written with ID: ", docRef.id);
+};
+const getLeaderboardOf = async (map) => {
+  const boardRef = collection(db, map, "leaderboard", "entries");
+  const q = query(boardRef, orderBy("time"));
+  const querySnapshot = await getDocs(q);
+  const result = [];
+  querySnapshot.forEach((doc) => {
+    result.push(doc.data());
+  });
+  return result;
 };
 
 export { getCorrectSquaresOf, addLeaderboardRecord };
