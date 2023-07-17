@@ -16,7 +16,14 @@ export default function EndMessage({ time }) {
         <form>
           <div className="input">
             <label htmlFor="user">name: </label>
-            <input type="text" id="user" />
+            <input
+              type="text"
+              id="user"
+              defaultValue={name}
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+            />
           </div>
           <div>
             <label htmlFor="time">time: </label>
