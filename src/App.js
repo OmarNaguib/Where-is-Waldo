@@ -12,13 +12,7 @@ function App() {
           <Route path="/" element={<Home />}></Route>
           <Route
             path="/play"
-            element={
-              <Challenge
-                url={image}
-                name="beach"
-                startTime={new Date()}
-              ></Challenge>
-            }
+            element={<Challenge url={image} name="beach"></Challenge>}
           ></Route>
           <Route path="/board" element={<Leaderboard />}></Route>
         </Routes>

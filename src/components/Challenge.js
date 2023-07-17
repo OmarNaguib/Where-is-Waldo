@@ -8,7 +8,9 @@ import MenuItems from "./MenuItems";
 import Squares from "./Squares";
 import EndMessage from "./EndMessage";
 
-export default function Challenge({ url, name, startTime }) {
+export default function Challenge({ url, name }) {
+  const [startTime] = useState(new Date());
+
   const [characters, setCharacters] = useState(data.getCharcterDataOf(name));
 
   const gameOver = characters.reduce(
