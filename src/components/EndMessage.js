@@ -1,13 +1,14 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/modal.css";
 import { addLeaderboardRecord } from "../utils/backend";
 export default function EndMessage({ time, mapName }) {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const submitRecord = async (e) => {
     e.preventDefault();
-    console.log("here");
-
-    console.log(await addLeaderboardRecord({ name, time }, mapName));
+    await addLeaderboardRecord({ name, time }, mapName);
+    navigate("/leaderboard");
   };
   return (
     <div className="end-message modal">
