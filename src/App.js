@@ -14,7 +14,8 @@ function App() {
             path="/play"
             element={<Challenge url={image} name="beach"></Challenge>}
           ></Route>
-          <Route path="/board" element={<Leaderboard />}></Route>
+          <Route path="/leaderboard" element={<Leaderboard name="beach"/>}></Route>
+          
         </Routes>
       </HashRouter>
     </div>
