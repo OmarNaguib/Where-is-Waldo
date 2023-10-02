@@ -23,6 +23,7 @@ export default function EndMessage({ time, mapName }) {
               onChange={(e) => {
                 setName(e.target.value);
               }}
+              required
             />
           </div>
           <div>

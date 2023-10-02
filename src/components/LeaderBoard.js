@@ -12,14 +12,27 @@ export default function Leaderboard({ name }) {
   console.log(records);
   const recordsDisplay = records.map((item) => (
     <li>
-      <span className="name">{item.name}</span>
-      <span className="time">{item.time}</span>
+      <div className="name board-item" aria-label="name">
+        {item.name}
+      </div>
+      <div className="time board-item" aria-label="time">
+        {item.time}
+      </div>
     </li>
   ));
   return (
-    <div className="board">
-      <h1>Leaderboard</h1>
-      <ol>{recordsDisplay}</ol>
-    </div>
+    <>
+      <header className="header">
+        <div className="header-text">Where's Waldo</div>
+      </header>
+      <div className="board" aria-labelledby="#leaderboard">
+        <h1 id="leaderboard"> Leaderboard</h1>
+        <div className="titles">
+          <div className="name board-item">Name</div>
+          <div className="time board-item">Time</div>
+        </div>
+        <ol>{recordsDisplay}</ol>
+      </div>
+    </>
   );
 }

@@ -126,3 +126,26 @@
   height: 30px;
   border-radius: 15px;
 }
+
+/* leaderboard */
+
+.board {
+  display: grid;
+  place-content: center;
+}
+.board h1 {
+  font-size: 48px;
+}
+.board li,
+.board > div {
+  display: flex;
+}
+
+.board-item {
+  font-size: 30px;
+  width: 200px;
+}
+ol {
+  margin: 0;
+  padding: 0;
+}

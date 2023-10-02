@@ -47,4 +47,4 @@ const getLeaderboardOf = async (map) => {
   return result;
 };
 
-export { getCorrectSquaresOf, addLeaderboardRecord,getLeaderboardOf };
+export { getCorrectSquaresOf, addLeaderboardRecord, getLeaderboardOf };
